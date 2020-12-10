@@ -34,6 +34,7 @@ export class ProfileComponent implements OnInit {
   async ngOnInit(): Promise<void> {
       await this.service.profile()
         .then(profile => this.user = profile);
+      window.alert('PROFILE | ' + this.user)
       await this.service.findAllUsers()
         .then(users => this.users = users);
   }

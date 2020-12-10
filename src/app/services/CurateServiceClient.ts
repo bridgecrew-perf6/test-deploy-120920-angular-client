@@ -5,21 +5,21 @@ import {Injectable} from '@angular/core';
 export class CurateServiceClient {
 
   getCuratedLists = () =>
-    fetch(`http://localhost:3000/curate/` , {
+    fetch(`http://mm-nodejs-server-120920.herokuapp.com/curate/` , {
       method: 'GET',
       credentials: 'include'
     }).then(response => response.json())
       .catch(err => console.log(err))
 
   deleteFromCuratedList  = ( docID ) =>
-    fetch(`http://localhost:3000/curate/delete/` + docID  , {
+    fetch(`http://mm-nodejs-server-120920.herokuapp.com/curate/delete/` + docID  , {
       method: 'DELETE',
       credentials: 'include'
     }).then(response => response.json())
       .catch(err => console.log(err))
 
   addToCuratedList  = (movieID, movieObject ) =>
-    fetch(`http://localhost:3000/curate/create/`   , {
+    fetch(`http://mm-nodejs-server-120920.herokuapp.com/curate/create/`   , {
       method: 'POST',
       body: JSON.stringify({movieID, movieObject}),
       headers: {

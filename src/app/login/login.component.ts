@@ -14,17 +14,25 @@ export class LoginComponent implements OnInit {
 
   username = '';
   password = '';
+  isLoggedIn = true;
 
-  login = (username, password) => {
-    this.service.login(username, password)
+  profile = {};
+
+  login = async (username, password ) => {
+    await this.service.login(username, password)
       .then(actualUser => {
-        console.log(actualUser.errorMessage);
+        window.alert('Login | actualUser:' + JSON.stringify(actualUser));
+        window.alert('Login | actualUser.errorMessage' + actualUser.errorMessage);
         if (actualUser.errorMessage === undefined) {
           this.router.navigate(['/profile']);
         } else {
           window.alert(actualUser.errorMessage);
         }
       });
+    // await this.service.profile()
+    //       .then(profile => this.profile = profile );
+    // window.alert('LOGIN -- profile (*session retrieval) * |  : ' + this.profile);
+
   }
 
 

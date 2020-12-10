@@ -7,7 +7,7 @@ export class UserServiceClient {
 
   // for updating only the user's "movies" array
   update = (userId, newEdits) =>
-    fetch(`http://localhost:3000/update/` + userId, {
+    fetch(`http://mm-nodejs-server-120920.herokuapp.com/update/` + userId, {
       method: 'PUT',
       body: JSON.stringify(newEdits),
       headers: {
@@ -19,7 +19,7 @@ export class UserServiceClient {
 
   // for updating all other attributes of user profile (except movies array)
   updateProfile = (userId, newEdits) =>
-    fetch(`http://localhost:3000/updateProfile/` + userId, {
+    fetch(`http://lmm-nodejs-server-120920.herokuapp.com/updateProfile/` + userId, {
       method: 'PUT',
       body: JSON.stringify(newEdits),
       headers: {
@@ -30,7 +30,7 @@ export class UserServiceClient {
       .catch(err => console.log(err))
 
   findUserById = (userId) =>
-    fetch(`http://localhost:3000/findUserById/` + userId, {
+    fetch(`http://mm-nodejs-server-120920.herokuapp.com/findUserById/` + userId, {
       method: 'POST',
       body: JSON.stringify({userId}),
       headers: {
@@ -41,14 +41,14 @@ export class UserServiceClient {
       .catch(err => console.log(err))
 
   logout = () =>
-    fetch(`http://localhost:3000/logout`, {
+    fetch(`http://mm-nodejs-server-120920.herokuapp.com/logout`, {
       method: 'POST',
       credentials: 'include'
     }).catch(err => console.log(err))
 
 
   profile = async () =>
-    await fetch(`http://localhost:3000/profile`, {
+    await fetch(`http://mm-nodejs-server-120920.herokuapp.com/profile`, {
       method: 'POST',
       credentials: 'include'
     }).then(response => response.json())
@@ -56,7 +56,7 @@ export class UserServiceClient {
 
 
   login = (username, password) =>
-    fetch(`http://localhost:3000/login`, {
+    fetch(`http://mm-nodejs-server-120920.herokuapp.com/login`, {
       method: 'POST',
       body: JSON.stringify({username, password}),
       headers: {
@@ -79,7 +79,7 @@ export class UserServiceClient {
   //     .catch(err => console.log(err))
 
   register = (username, password, role, firstName, lastName, email) =>
-    fetch(`http://localhost:3000/register`, {
+    fetch(`http://mm-nodejs-server-120920.herokuapp.com/register`, {
       method: 'POST',
       body: JSON.stringify({username, password, role, firstName, lastName, email}),
       headers: {
@@ -91,7 +91,7 @@ export class UserServiceClient {
 
 
   findAllUsers = () =>
-    fetch('http://localhost:3000/api/users')
+    fetch('http://mm-nodejs-server-120920.herokuapp.com/api/users')
       .then(response => response.json())
 
 }

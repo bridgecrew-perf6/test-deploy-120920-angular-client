@@ -6,14 +6,14 @@ import {Injectable} from '@angular/core';
 export class MovieServiceClient {
 
   getMovieMatchDetails = (mId) =>
-    fetch(`http://localhost:3000/details/` + mId, {
+    fetch(`http://mm-nodejs-server-120920.herokuapp.com/details/` + mId, {
       method: 'POST',
       credentials: 'include'
     }).then(response => response.json())
       .catch(err => console.log(err))
 
   updateMovieDetailsAddUser = (mId, uId) =>
-    fetch(`http://localhost:3000/details/` + mId + `/update`, {
+    fetch(`http://mm-nodejs-server-120920.herokuapp.com/details/` + mId + `/update`, {
       method: 'POST',
       body: JSON.stringify({uId}),
       headers: {
